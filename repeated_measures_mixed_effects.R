@@ -11,6 +11,7 @@ summary(heightModel <- lme(height ~ diversity*warming*year,
                            control=lmeControl(returnObject=T)))
 check_model(heightModel)
 Anova(heightModel, type=3) #this may not work, use shuffling function to calculate type 3 effects instead
+lsmeans(heightModel, pairwise~as.factor(diversity), adjust='tukey') #paired contrasts
 
 
 
@@ -22,3 +23,4 @@ summary(heightModel <- lme(height ~ diversity*warming*year,
                            control=lmeControl(returnObject=T)))
 check_model(heightModel)
 Anova(heightModel, type=3) #this may not work, use shuffling function to calculate type 3 effects instead
+lsmeans(heightModel, pairwise~as.factor(diversity), adjust='tukey') #paired contrasts
